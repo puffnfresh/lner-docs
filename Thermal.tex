@@ -31,6 +31,30 @@
 
 \pgfplotsset{compat=1.18}
 
+% Document version control
+\newcommand{\docversion}{0.9}
+
+% Configure page headers and footers
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+\fancyfoot[L]{Version \docversion}
+\fancyfoot[C]{Electric Conversion of Assist Vehicle}
+\fancyfoot[R]{\today}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Plain style for chapter pages
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[L]{Version \docversion}
+  \fancyfoot[C]{Electric Conversion of Assist Vehicle}
+  \fancyfoot[R]{\today}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
 \title{Electric Conversion of Assist Vehicle}
 \author{Brian McKenna -- Launceston \& North East Railway}
 \date{\today}
