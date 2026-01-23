@@ -138,10 +138,10 @@ F_\text{total} = 34.3 + 343 = 377~\text{N}
 Assuming a wheel radius of 0.6~m, the torque at the wheels required to overcome this tractive load is:
 
 \[
-T_\text{wheel} = F_\text{total} \times r = 377 \times 0.6 = 226~\text{N·m}
+T_\text{wheel} = F_\text{total} \times r = 377 \times 0.6 = 226~\text{N}\cdot\text{m}
 \]
 
-This represents the steady-state torque demand for climbing the maximum gradient at constant speed. To allow for acceleration, minor gradients, bearing friction, and inefficiencies, a design safety margin of at least 2–3 times this value is recommended, yielding a peak requirement in the order of 450–700~N·m at the wheels.
+This represents the steady-state torque demand for climbing the maximum gradient at constant speed. To allow for acceleration, minor gradients, bearing friction, and inefficiencies, a design safety margin of at least 2--3 times this value is recommended, yielding a peak requirement in the order of 450--700~N$\cdot$m at the wheels.
 
 \subsection{Power Requirement}
 
@@ -151,15 +151,15 @@ The required power depends on the desired operating speed. For example, at a ste
 P = F_\text{total} \times v = 377 \times 2.78 = 1.05~\text{kW}
 \]
 
-This is the theoretical minimum continuous power. Considering transmission losses, acceleration, and variable gradients, a continuous rating of approximately 3–4~kW and a short-term peak capability of 8–10~kW are appropriate design targets for the traction system
+This is the theoretical minimum continuous power. Considering transmission losses, acceleration, and variable gradients, a continuous rating of approximately 3--4~kW and a short-term peak capability of 8--10~kW are appropriate design targets for the traction system
 
 \subsection{Design Implications}
 
 The chosen traction motor, gearing, and drive system must therefore satisfy the following criteria:
 
 \begin{itemize}
-  \item Provide at least 700~N·m of peak torque at the wheels to ensure safe starting and hill-climbing.
-  \item Sustain approximately 200–250~N·m of continuous torque for steady operation on inclines.
+  \item Provide at least 700~N$\cdot$m of peak torque at the wheels to ensure safe starting and hill-climbing.
+  \item Sustain approximately 200--250~N$\cdot$m of continuous torque for steady operation on inclines.
   \item Deliver a continuous power output of at least 3~kW.
   \item Allow regenerative braking capability for controlled descent and energy recovery.
 \end{itemize}
@@ -268,7 +268,7 @@ A large red emergency stop button was chosen as the start/stop mechanism. The op
 
 A digital speedometer was added so that the operator can accurately regulate the vehicle. The speedometer uses GPS and it is quite accurate and independent of the motor controller. The speedometer has an upper limit of 30 km/h which is more than adequate for our needs but still gives a good amount of fidelity.
 
-A battery level indicator measures and shows the battery's voltage and provides a visual representation of State of Charge using bars, just like many mobile phones or other battery devices. The meter is not accurate under load, since it doesn't do coulomb counting, but it is sufficient enough to provide a useful indication of whether the vehicle needs to be charged or is "full" at our designated 80\% maximum.
+A battery level indicator measures and shows the battery's voltage and provides a visual representation of State of Charge using bars, just like many mobile phones or other battery devices. The meter is not accurate under load, since it doesn't do coulomb counting, but it is sufficient enough to provide a useful indication of whether the vehicle needs to be charged or is ``full'' at our designated 80\% maximum.
 
 The existing horn was retained in order to be able to alert others to the vehicle's presence, which has become more important now that the vehicle itself does not emit much noise.
 
@@ -400,14 +400,14 @@ Figure~\ref{fig:soc-curve} shows the open-circuit voltage (OCV) versus SOC for t
 \begin{axis}[
     width=14cm, height=8cm,
     xlabel={Adjusted SOC (\%)},
-    ylabel={Estimated Cell Temperature (°C)},
+    ylabel={Estimated Cell Temperature ($^\circ$C)},
     grid=both,
     ymin=40, ymax=43,
     xmin=0, xmax=100,
-    title={Estimated Cell Temperature vs SOC (Ambient 40\,°C)},
+    title={Estimated Cell Temperature vs SOC (Ambient 40\,$^\circ$C)},
 ]
 
-% Temperature rise estimates (ΔT added to 40°C ambient)
+% Temperature rise estimates ($\Delta T$ added to 40$^\circ$C ambient)
 \addplot[smooth, thick, blue] coordinates {
     (0,40.0)
     (6,40.01)
@@ -435,7 +435,7 @@ Figure~\ref{fig:soc-curve} shows the open-circuit voltage (OCV) versus SOC for t
 
 \end{axis}
 \end{tikzpicture} 
-\caption{Estimated maximum cell temperature under maxmimum operation at ambient 40°C with 100A discharge. Red dashed line shows 4 V SOC limit (85\%).}
+\caption{Estimated maximum cell temperature under maxmimum operation at ambient 40$^\circ$C with 100A discharge. Red dashed line shows 4 V SOC limit (85\%).}
 \label{fig:temp_soc_40C}
 \end{figure}
 
@@ -443,7 +443,7 @@ The decision to limit charging to 4.0\,V per cell, rather than the manufacturer�
 
 \subsection{Voltage-Dependent Degradation Mechanisms}
 
-In NCM chemistry, the upper voltage limit directly influences the stability of the cathode, the solid–electrolyte interphase (SEI) on the anode, and the overall heat generation rate within the cell. When the voltage exceeds approximately 4.05\,V per cell, several degradation pathways accelerate markedly \cite{birkl2017degradation}:
+In NCM chemistry, the upper voltage limit directly influences the stability of the cathode, the solid--electrolyte interphase (SEI) on the anode, and the overall heat generation rate within the cell. When the voltage exceeds approximately 4.05\,V per cell, several degradation pathways accelerate markedly \cite{birkl2017degradation}:
 
 \begin{itemize}
   \item \textbf{Cathode degradation:} Over 4.1\,V, transition-metal ions (Ni, Mn, Co) begin to dissolve from the cathode surface and migrate into the electrolyte, increasing impedance and gas generation.
@@ -457,11 +457,11 @@ These mechanisms increase both the likelihood of internal short-circuit formatio
 
 NCM cells exhibit a strong correlation between state of charge (SOC) and the onset temperature for thermal runaway. Laboratory testing shows that:
 \begin{itemize}
-  \item At 100\,\% SOC (4.2\,V), thermal runaway can initiate as low as 170–180 °C.
-  \item At 80--85\,\% SOC (\(\approx 4.0\,\mathrm{V}\)), onset typically occurs above 210\,°C.
+  \item At 100\,\% SOC (4.2\,V), thermal runaway can initiate as low as 170--180 $^\circ$C.
+  \item At 80--85\,\% SOC (\(\approx 4.0\,\mathrm{V}\)), onset typically occurs above 210\,$^\circ$C.
 \end{itemize}
 
-This increase of 30–40 °C in onset temperature provides a substantial thermal safety buffer under abuse or fault conditions. Since the assist vehicle operates outdoors and may be subject to solar loading, maintaining this buffer is essential to prevent cascade failure under abnormal temperature rise.
+This increase of 30--40 $^\circ$C in onset temperature provides a substantial thermal safety buffer under abuse or fault conditions. Since the assist vehicle operates outdoors and may be subject to solar loading, maintaining this buffer is essential to prevent cascade failure under abnormal temperature rise.
 
 \subsection{Impact on Cycle Life}
 
@@ -486,8 +486,8 @@ This energy level remains more than sufficient for the short-distance assist and
 The 4.0\,V per-cell charge limit provides a conservative, safety-first operating window that:
 \begin{enumerate}[label=\arabic*.]
   \item Significantly reduces the probability of overcharge and electrolyte oxidation.
-  \item Raises the thermal runaway onset temperature by 30–40 °C.
-  \item Extends cycle life by 2–3× compared to full-voltage operation.
+  \item Raises the thermal runaway onset temperature by 30--40 $^\circ$C.
+  \item Extends cycle life by 2--3$\times$ compared to full-voltage operation.
   \item Reduces mechanical stress on electrodes, improving pack stability.
 \end{enumerate}
 
@@ -506,7 +506,7 @@ This approach aligns with best practices in railway traction battery design, whe
 \midrule
 Overcharging & Faulty charger or BMS malfunction & BMS voltage limit 4.0 V; charger current limit; fuse protection \\
 Overcurrent discharge & Short circuit or motor controller failure & 100 A fuse; BMS overcurrent cutoff; wiring rated to 200 A continuous \\
-High temperature & High ambient or continuous heavy load & Temperature sensors; BMS temperature cutoff at 55 °C; thermal mass of enclosure \\
+High temperature & High ambient or continuous heavy load & Temperature sensors; BMS temperature cutoff at 55 $^\circ$C; thermal mass of enclosure \\
 Cell imbalance & Manufacturing variance or ageing & JK active balancing; cell-level monitoring \\
 Propagation & Thermal runaway in one cell & Metal enclosure; cell packing; limited SOC \\
 \bottomrule
@@ -517,7 +517,7 @@ Propagation & Thermal runaway in one cell & Metal enclosure; cell packing; limit
 
 During normal operation, the battery pack is expected to experience only modest thermal variation due to the conservative operating limits and active monitoring implemented by the JK~BMS. The pack’s environmental conditions are determined by the regional climate of northern Tasmania, where the historical maximum ambient temperature in Launceston has not exceeded \(40^{\circ}\mathrm{C}\). Under these conditions, the internal cell temperature typically rises by only \(2{-}4^{\circ}\mathrm{C}\) above ambient during sustained discharge at the system’s maximum continuous current of 100~A (approximately \(0.53\,C\)), and less than \(1^{\circ}\mathrm{C}\) during 15~A charging.
 
-The moderate thermal rise is attributed to the low internal resistance of the LG~E63B cells ($\approx$1.4 m\(\Omega\) at 70–80 \% SOC). At the maximum discharge rate, resistive heating per cell is therefore around \(I^2R \approx (33.3\,\mathrm{A})^2 \times 1.4\,\mathrm{m}\Omega \approx 1.55\,\mathrm{W}\). Distributed over the cell’s mass and thermal interface, this produces a negligible temperature gradient, quickly equilibrated by conduction through the cell’s aluminium shell and the battery module’s structure.
+The moderate thermal rise is attributed to the low internal resistance of the LG~E63B cells ($\approx$1.4 m\(\Omega\) at 70--80 \% SOC). At the maximum discharge rate, resistive heating per cell is therefore around \(I^2R \approx (33.3\,\mathrm{A})^2 \times 1.4\,\mathrm{m}\Omega \approx 1.55\,\mathrm{W}\). Distributed over the cell’s mass and thermal interface, this produces a negligible temperature gradient, quickly equilibrated by conduction through the cell’s aluminium shell and the battery module’s structure.
 
 The JK~BMS continuously monitors temperature using two probes placed between cell groups. These sensors are configured to trigger pre-emptive protective actions: charging is halted above \(45^{\circ}\mathrm{C}\), and discharge is suspended above \(55^{\circ}\mathrm{C}\). These thresholds are intentionally conservative—approximately \(50{-}60^{\circ}\mathrm{C}\) below the onset of SEI breakdown (\(90{-}120^{\circ}\mathrm{C}\))—providing a substantial safety buffer.
 
@@ -527,7 +527,7 @@ The JK~BMS continuously monitors temperature using two probes placed between cel
 \begin{tikzpicture}
 \begin{axis}[
     width=14cm, height=8cm,
-    xlabel={Temperature (°C)},
+    xlabel={Temperature ($^\circ$C)},
     ylabel={},
     ytick=\empty,
     ymajorgrids=false,
@@ -538,15 +538,15 @@ The JK~BMS continuously monitors temperature using two probes placed between cel
     title={Thermal Runaway Stages for NCM Cells},
 ]
 
-% SEI breakdown: 90-120°C
+% SEI breakdown: 90-120$^\circ$C
 \draw[fill=yellow!30, opacity=0.3] (axis cs:90,0) rectangle (axis cs:120,100);
 \node[align=center, text width=2cm] at (axis cs:105,50) {\small SEI breakdown starts};
 
-% Electrolyte decomposition: 130-170°C
+% Electrolyte decomposition: 130-170$^\circ$C
 \draw[fill=orange!30, opacity=0.3] (axis cs:130,0) rectangle (axis cs:170,100);
 \node[align=center, text width=2.5cm] at (axis cs:150,50) {\small Electrolyte decomposition starts};
 
-% Cathode oxygen release: 180-220°C
+% Cathode oxygen release: 180-220$^\circ$C
 \draw[fill=red!30, opacity=0.3] (axis cs:180,0) rectangle (axis cs:220,100);
 \node[align=center, text width=2cm] at (axis cs:200,50) {\small Cathode oxygen release starts};
 
@@ -556,7 +556,7 @@ The JK~BMS continuously monitors temperature using two probes placed between cel
 
 \end{axis}
 \end{tikzpicture}
-\caption{Thermal runaway stages for NCM cells. Vertical blue dashed line shows estimated maximum cell temperature under maximum operation at ambient 40°C (42°C), well below the onset of SEI breakdown.}
+\caption{Thermal runaway stages for NCM cells. Vertical blue dashed line shows estimated maximum cell temperature under maximum operation at ambient 40$^\circ$C (42$^\circ$C), well below the onset of SEI breakdown.}
 \label{fig:thermal_safe}
 \end{figure}
 
@@ -602,11 +602,11 @@ The pack is mounted behind the operator’s compartment, separated by a fire-res
 
 Operators must complete a pre-start inspection before energising the traction system. The Battery Management System (BMS) automatically monitors and protects against out-of-range cell voltages, so manual voltage checking is not required. Instead, operators should confirm that the BMS status indicator shows no active faults or warnings.
 
-A physical inspection must verify that the battery enclosure is cool to the touch (below approximately 40 °C) and free of any swelling, odour, or visible damage. All connectors should be confirmed secure, the primary fuse intact, and the fire extinguisher readily accessible and charged. This checklist reinforces operator awareness of physical and environmental safety conditions before operation.
+A physical inspection must verify that the battery enclosure is cool to the touch (below approximately 40 $^\circ$C) and free of any swelling, odour, or visible damage. All connectors should be confirmed secure, the primary fuse intact, and the fire extinguisher readily accessible and charged. This checklist reinforces operator awareness of physical and environmental safety conditions before operation.
 
 \subsection{Charging Restrictions}
 
-Battery charging must only occur in a well-ventilated area, on a non-combustible surface, and away from flammable materials such as fuels, solvents, or vegetation. The charging area must be supervised whenever the charger is energised. Operators must verify that charging cables and connectors are undamaged, clean, and properly latched before use. In the event of unusual noise, odour, or heat generation during charging, the charger must be immediately disconnected and the pack isolated for inspection. Charging should be avoided in direct sunlight or when ambient temperatures exceed 35 °C.
+Battery charging must only occur in a well-ventilated area, on a non-combustible surface, and away from flammable materials such as fuels, solvents, or vegetation. The charging area must be supervised whenever the charger is energised. Operators must verify that charging cables and connectors are undamaged, clean, and properly latched before use. In the event of unusual noise, odour, or heat generation during charging, the charger must be immediately disconnected and the pack isolated for inspection. Charging should be avoided in direct sunlight or when ambient temperatures exceed 35 $^\circ$C.
 
 \subsection{Emergency Response}
 
@@ -618,7 +618,7 @@ Before the traction system is approved for regular service, a structured commiss
 
 \begin{enumerate}
   \item Verify BMS cutoff voltages, charge current limits, and temperature protection by simulating charge and discharge events under supervision.
-  \item Conduct an initial round-trip test over the full 3.3 km track, recording battery temperature, voltage, and current throughout the run. Confirm that peak cell temperature remains well below 60 °C and that no overcurrent or overtemperature faults are triggered.
+  \item Conduct an initial round-trip test over the full 3.3 km track, recording battery temperature, voltage, and current throughout the run. Confirm that peak cell temperature remains well below 60 $^\circ$C and that no overcurrent or overtemperature faults are triggered.
   \item Validate fuse and MOSFET protection trip times through controlled short-duration overload tests.
   \item Confirm insulation resistance of the completed pack assembly exceeds \SI{1}{\mega\ohm} between conductors and the chassis.
   \item Document all measured data, thermal logs, and protection system responses, and file the results within the Safety Management System for review by the responsible engineer.
