@@ -278,15 +278,60 @@ These specifications are well-suited to the low-speed, high-torque requirements 
 
 Motor control is provided by a FarDriver~72450 controller, which is widely supported and specifically matched to the QS165 motor family. The controller provides comprehensive programmability of current limits, torque curves, regenerative braking, and thermal protection. Its use of standard CAN and UART interfaces allows for future data logging and integration with onboard monitoring systems.
 
-\subsection{Mechanical Integration}
-
-The mechanical integration of the motor and drivetrain was overseen and executed by Greg Stewart, a qualified Motor Mechanic (Lic No: 7277 10508 025470) with extensive experience in vehicle fabrication. A detailed mechanical engineering review and description of the chassis overhaul is provided in Section~2.5.
-
 \subsection{Rationale and Compatibility}
 
 The use of mass-produced components such as the QS165 motor and FarDriver controller ensures that replacement parts, configuration tools, and technical documentation are readily available. These components have been adopted by a large community of electric vehicle builders, providing confidence in their reliability and long-term support. By repurposing Hyundai Kona EV modules and employing an accessible BMS system, the project achieves a high standard of safety and functionality without the cost or complexity of a bespoke commercial drive package.
 
 The resulting system provides a compact, efficient, and quiet electric drivetrain that aligns with the railway's commitment to sustainable operation and minimal environmental impact.
+
+The mechanical integration of the motor and drivetrain was overseen and executed by Greg Stewart, a qualified Motor Mechanic (Lic No: 7277 10508 025470) with extensive experience in vehicle fabrication. A detailed mechanical engineering review and description of the chassis overhaul is provided in Section~2.2.
+
+\chapter{Project implementation}
+
+\section{Timeline}
+
+\label{subsec:timeline}
+
+\begin{longtable}{p{3.5cm} | p{9.5cm}}
+\textbf{Date} & \textbf{Work} \\ \hline
+1 September 2024 & L\&NER decided to convert the petrol propulsion \ref{fig:before} to electric. \\
+17 October 2024 & Greg Stewart and Brian McKenna investigated options for mounting the motor \ref{fig:motorplacement} \ref{fig:motorshaft}. \\
+23 October 2024 & Greg Stewart finished fabrication of a motor mount \ref{fig:motormount1} \ref{fig:motormount2}. \\
+29 October 2024 & Pulley arrived. After Greg Stewart attempt at fitting, he determined that the pulley was too large \ref{fig:pulley1}. \\
+19 November 2024 & A smaller pulley was machined to fit the vehicle \ref{fig:pulley2}. \\
+23 November 2024 & While fitting the smaller pulley, Greg Stewart discovered that the transmission pulley was wobbling, making it unsafe for operation \ref{fig:transmission}. \\
+4 December 2024 & After not being able to find a replacement transmission, Greg Stewart and Brian McKenna decided to move to a chain drive, removing the transmission altogether \ref{fig:motorsprocket} \ref{fig:axlesprocket}. \\
+20 December 2024 & Greg Stewart finished fabrication of motor and controller mounts \ref{fig:controllermount} \ref{fig:motormount3}. Ian Nicholas finished fabrication of sprocket-axle coupling \ref{fig:axlecoupler}. \\
+31 December 2024 & Greg Stewart mounted the motor, controller and axle to the vehicle \ref{fig:chassismounted}. \\
+11 January 2025 & Brian McKenna lifted the vehicle and tested the batteries, motor and controller. \\
+13 January 2025 & Greg Stewart fabricated an automatic chain tensioner \ref{fig:tensioner}. \\
+3 February 2025 & Greg Stewart fabricated a battery rack \ref{fig:batteryrack}. Brian McKenna added branding stickers. \\
+8 February 2025 & Greg Stewart and Brian McKenna did a test on the rail at Turners Marsh station \ref{fig:testride}. \\
+15 March 2025 & Brian McKenna fitted a fuse \ref{fig:fuse}, beacon light, emergency stop \ref{fig:initialdash} and charger \ref{fig:charger}. \\
+18 March 2025 & Brian McKenna created a wiring loom for the Battery Management System (BMS) \ref{fig:bmsloom}. \\
+21 March 2025 & Greg Stewart and Brian McKenna put the batteries and BMS into the vehicle \ref{fig:batteryandbms}. \\
+30 March 2025 & Brian McKenna configured the BMS \ref{fig:screenshotbms} and FarDriver controller \ref{fig:screenshotfardriver}. \\
+11 July 2025 & Ian Nicholas modified the axle-sprocket coupling and Greg Stewart attached a larger sprocket \ref{fig:axlesprocket2}. \\
+5 December 2025 & Brian McKenna and Greg Stewart installed the completed dashboard \ref{fig:dashboard}.
+\end{longtable}
+
+\section{Mechanical Engineering Review}
+
+A mechanical review of the vehicle's modifications was conducted by Greg Stewart, a qualified Motor Mechanic (Lic No: 7277 10508 025470) and long-standing board member of the Launceston \& North East Railway. The review specifically addressed the adequacy of the drive-train components (axles, hubs, and keyways) for electric motor operation, the independence of the braking system from the electric drive-train, the continued adequacy of the braking system without transmission braking, and the control of maximum operating speed. His initial assessment of the vehicle in its original petrol-powered configuration identified several critical safety defects, including significant wheel misalignment, a failing motor mount and non-functional brakes. Further inspection revealed a total failure of the rear differential input shaft bearing and a drive pulley that had been dangerously welded out of square, a condition deemed likely to cause catastrophic failure during operation.
+
+Given the obsolescence of the original transmission components, the vehicle was stripped to its chassis and subjected to a complete engineering overhaul. The rear chassis was strengthened and reinforced to accommodate a new rear axle and a motorcycle-grade chain and sprocket drive system. This assembly includes a custom-fabricated steel engine mount and an integrated automatic chain tensioner, designed specifically to manage the torque and power profile of the QS165 electric motor.
+
+\subsection{Drive-train Load Analysis}
+
+The mechanical review included analysis of drive-train loads to confirm that the redesigned rear axle assembly, hubs, and keyways are adequate for the electric motor installation. The original 13.5~HP (10~kW) Briggs \& Stratton petrol engine operated through a pulley-based transmission system with an estimated reduction ratio of approximately 2.86:1, providing substantially higher power output than the electric replacement. At maximum engine speed, the petrol configuration was capable of delivering estimated peak torque at the wheels in the range of 250--350~N$\cdot$m, accounting for transmission efficiency losses.
+
+The entire rear transmission and pulley system was removed during the conversion due to the discovery of catastrophic failures in the original drive components. Greg Stewart designed and fabricated a completely new rear axle assembly to replace the failed original components. This redesigned system eliminates the complex pulley-based transmission in favor of a direct chain drive from the electric motor to the rear axle, significantly simplifying the mechanical configuration while improving reliability and serviceability.
+
+The QS165 electric motor provides 40~N$\cdot$m peak torque at the motor shaft. Through the 4.29:1 chain drive reduction implemented in the new design, this delivers 172~N$\cdot$m peak torque at the wheels. This represents a reduction of approximately 30--50\% compared to the original petrol configuration. The redesigned rear axle, hubs, and keyway assemblies were specifically engineered by Greg Stewart to handle the electric motor's torque output with appropriate safety margins, drawing on his extensive experience with vehicle fabrication and mechanical systems.
+
+The motorcycle-grade 428 profile chain and hardened steel sprockets selected for the new drive system are commonly rated for applications exceeding 10~kW at similar reduction ratios, providing confidence in the mechanical integrity of the design. The custom-fabricated steel engine mount and integrated automatic chain tensioner, both designed and built by Greg Stewart, ensure proper alignment and consistent tension throughout the operating range, reducing stress concentrations and fatigue loading on all drive components.
+
+The review also verified the implementation of a redundant braking architecture consisting of the original manual disc brakes and supplemental regenerative braking via the motor controller. Through these modifications, the unit has been transformed into a mechanically robust vehicle that tracks precisely without derailing, representing a significant improvement in safety and reliability over the original configuration. Comprehensive photographic evidence has been maintained throughout the build process (\ref{subsec:timeline}) to provide a transparent record of all engineering improvements and mechanical verifications.
 
 \section{Traction Motor Replacement and Controller Integration}
 
@@ -337,24 +382,6 @@ A critical feature of this configuration is that the physical disc braking syste
 
 Furthermore, the braking system is considered highly adequate despite the removal of the original petrol motor's transmission braking. Because the maximum service speed is strictly limited to 15 km/h, the original disc brakes possess more than enough capacity to safely stop the vehicle under all expected operational loads. The supplemental regenerative braking further reduces wear on the physical components while providing a smooth, controlled deceleration profile.
 
-\subsection{Mechanical Engineering Review}
-
-A mechanical review of the vehicle's modifications was conducted by Greg Stewart, a qualified Motor Mechanic (Lic No: 7277 10508 025470) and long-standing board member of the Launceston \& North East Railway. The review specifically addressed the adequacy of the drive-train components (axles, hubs, and keyways) for electric motor operation, the independence of the braking system from the electric drive-train, the continued adequacy of the braking system without transmission braking, and the control of maximum operating speed. His initial assessment of the vehicle in its original petrol-powered configuration identified several critical safety defects, including significant wheel misalignment, a failing motor mount and non-functional brakes. Further inspection revealed a total failure of the rear differential input shaft bearing and a drive pulley that had been dangerously welded out of square, a condition deemed likely to cause catastrophic failure during operation.
-
-Given the obsolescence of the original transmission components, the vehicle was stripped to its chassis and subjected to a complete engineering overhaul. The rear chassis was strengthened and reinforced to accommodate a new rear axle and a motorcycle-grade chain and sprocket drive system. This assembly includes a custom-fabricated steel engine mount and an integrated automatic chain tensioner, designed specifically to manage the torque and power profile of the QS165 electric motor.
-
-\subsubsection{Drive-train Load Analysis}
-
-The mechanical review included analysis of drive-train loads to confirm that the redesigned rear axle assembly, hubs, and keyways are adequate for the electric motor installation. The original 13.5~HP (10~kW) Briggs \& Stratton petrol engine operated through a pulley-based transmission system with an estimated reduction ratio of approximately 2.86:1, providing substantially higher power output than the electric replacement. At maximum engine speed, the petrol configuration was capable of delivering estimated peak torque at the wheels in the range of 250--350~N$\cdot$m, accounting for transmission efficiency losses.
-
-The entire rear transmission and pulley system was removed during the conversion due to the discovery of catastrophic failures in the original drive components. Greg Stewart designed and fabricated a completely new rear axle assembly to replace the failed original components. This redesigned system eliminates the complex pulley-based transmission in favor of a direct chain drive from the electric motor to the rear axle, significantly simplifying the mechanical configuration while improving reliability and serviceability.
-
-The QS165 electric motor provides 40~N$\cdot$m peak torque at the motor shaft. Through the 4.29:1 chain drive reduction implemented in the new design, this delivers 172~N$\cdot$m peak torque at the wheels. This represents a reduction of approximately 30--50\% compared to the original petrol configuration. The redesigned rear axle, hubs, and keyway assemblies were specifically engineered by Greg Stewart to handle the electric motor's torque output with appropriate safety margins, drawing on his extensive experience with vehicle fabrication and mechanical systems.
-
-The motorcycle-grade 428 profile chain and hardened steel sprockets selected for the new drive system are commonly rated for applications exceeding 10~kW at similar reduction ratios, providing confidence in the mechanical integrity of the design. The custom-fabricated steel engine mount and integrated automatic chain tensioner, both designed and built by Greg Stewart, ensure proper alignment and consistent tension throughout the operating range, reducing stress concentrations and fatigue loading on all drive components.
-
-The review also verified the implementation of a redundant braking architecture consisting of the original manual disc brakes and supplemental regenerative braking via the motor controller. Through these modifications, the unit has been transformed into a mechanically robust vehicle that tracks precisely without derailing, representing a significant improvement in safety and reliability over the original configuration. Comprehensive photographic evidence has been maintained throughout the build process (\ref{subsec:timeline}) to provide a transparent record of all engineering improvements and mechanical verifications.
-
 \section{Dashboard}
 
 During development of the vehicle, it became apparent that a clear indication was needed when the motor controller is powered and the vehicle is able to move. A prominent amber beacon light was installed on the dashboard. This light provides an immediate visual confirmation that the ignition is on and the vehicle is live, compensating for the absence of the usual audible cues associated with an engine.
@@ -374,35 +401,6 @@ An electrical schematic diagram and parts list of the above components is availa
 A standard Class A fire extinguisher was mounted to the vehicle for fire safety. While specialized lithium-ion fire extinguishers are available, they are prohibitively expensive and have not been proven to effectively stop or control thermal runaway once initiated \cite{en13195117}. In the unlikely event of a battery fire, the primary purpose of the standard fire extinguisher is to protect surrounding areas and prevent the fire from spreading to other combustible materials, rather than attempting to extinguish the battery itself directly. The vehicle's design relies on multiple preventive measures to avoid thermal runaway in the first place, making the extinguisher a secondary safety measure for managing fire spread should other controls fail.
 
 The Safety Management System documents which reference parts of the escort vehicle have been updated and attached in Appendix \ref{ch:sms}.
-
-\chapter{Project implementation}
-
-\section{Timeline}
-
-\label{subsec:timeline}
-
-\begin{longtable}{p{3.5cm} | p{9.5cm}}
-\textbf{Date} & \textbf{Work} \\ \hline
-1 September 2024 & L\&NER decided to convert the petrol propulsion \ref{fig:before} to electric. \\
-17 October 2024 & Greg Stewart and Brian McKenna investigated options for mounting the motor \ref{fig:motorplacement} \ref{fig:motorshaft}. \\
-23 October 2024 & Greg Stewart finished fabrication of a motor mount \ref{fig:motormount1} \ref{fig:motormount2}. \\
-29 October 2024 & Pulley arrived. After Greg Stewart attempt at fitting, he determined that the pulley was too large \ref{fig:pulley1}. \\
-19 November 2024 & A smaller pulley was machined to fit the vehicle \ref{fig:pulley2}. \\
-23 November 2024 & While fitting the smaller pulley, Greg Stewart discovered that the transmission pulley was wobbling, making it unsafe for operation \ref{fig:transmission}. \\
-4 December 2024 & After not being able to find a replacement transmission, Greg Stewart and Brian McKenna decided to move to a chain drive, removing the transmission altogether \ref{fig:motorsprocket} \ref{fig:axlesprocket}. \\
-20 December 2024 & Greg Stewart finished fabrication of motor and controller mounts \ref{fig:controllermount} \ref{fig:motormount3}. Ian Nicholas finished fabrication of sprocket-axle coupling \ref{fig:axlecoupler}. \\
-31 December 2024 & Greg Stewart mounted the motor, controller and axle to the vehicle \ref{fig:chassismounted}. \\
-11 January 2025 & Brian McKenna lifted the vehicle and tested the batteries, motor and controller. \\
-13 January 2025 & Greg Stewart fabricated an automatic chain tensioner \ref{fig:tensioner}. \\
-3 February 2025 & Greg Stewart fabricated a battery rack \ref{fig:batteryrack}. Brian McKenna added branding stickers. \\
-8 February 2025 & Greg Stewart and Brian McKenna did a test on the rail at Turners Marsh station \ref{fig:testride}. \\
-15 March 2025 & Brian McKenna fitted a fuse \ref{fig:fuse}, beacon light, emergency stop \ref{fig:initialdash} and charger \ref{fig:charger}. \\
-18 March 2025 & Brian McKenna created a wiring loom for the Battery Management System (BMS) \ref{fig:bmsloom}. \\
-21 March 2025 & Greg Stewart and Brian McKenna put the batteries and BMS into the vehicle \ref{fig:batteryandbms}. \\
-30 March 2025 & Brian McKenna configured the BMS \ref{fig:screenshotbms} and FarDriver controller \ref{fig:screenshotfardriver}. \\
-11 July 2025 & Ian Nicholas modified the axle-sprocket coupling and Greg Stewart attached a larger sprocket \ref{fig:axlesprocket2}. \\
-5 December 2025 & Brian McKenna and Greg Stewart installed the completed dashboard \ref{fig:dashboard}.
-\end{longtable}
 
 \chapter{Battery safety}
 
