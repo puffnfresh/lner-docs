@@ -254,7 +254,7 @@ Motor control is provided by a FarDriver~72450 controller, which is widely suppo
 
 \subsection{Mechanical Integration}
 
-The mechanical integration of the motor and drivetrain was overseen and executed by Greg Stewart, a qualified Motor Mechanic (Lic No: 7277 10508 025470) with extensive experience in vehicle fabrication. His mechanical review involved a comprehensive overhaul of the chassis, which was deemed necessary after the original vehicle was found to be in an unsafe condition, featuring misaligned wheels, a failing petrol motor mount and crooked transmission. The mounting brackets, axle supports, and sprocket assemblies were fabricated to suit the new configuration, ensuring proper alignment, chain tension, and structural integrity under load.
+The mechanical integration of the motor and drivetrain was overseen and executed by Greg Stewart, a qualified Motor Mechanic (Lic No: 7277 10508 025470) with extensive experience in vehicle fabrication. A detailed mechanical engineering review and description of the chassis overhaul is provided in Section~2.5.
 
 \subsection{Rationale and Compatibility}
 
@@ -273,12 +273,7 @@ components affected by the modification have been designed and fabricated to wit
 dynamic and static loads encountered during normal operation along the 3.3~km track.
 
 \subsection{Technical Description}
-The QS165 motor delivers continuous and peak torque suitable to meet or exceed the
-performance of the original engine. The FarDriver 72450 controller provides programmable
-current limits, motor speed control, and overtemperature protection. Mechanical integration
-was carried out by a qualified mechanic, ensuring precise alignment of the motor shaft with
-the sprocket and axle assemblies to prevent undue wear or vibration. All drive components
-have been designed with safety factors appropriate to expected operational stresses.
+The QS165 motor and FarDriver 72450 controller configuration (specifications detailed in Section 1.5) was verified to meet all performance requirements through the analysis presented in Section 1.4. Mechanical integration was carried out by a qualified mechanic, ensuring precise alignment of the motor shaft with the sprocket and axle assemblies to prevent undue wear or vibration. All drive components have been designed with safety factors appropriate to expected operational stresses.
 
 During the technical review of the original propulsion system, it was discovered that the rear differential top pulley and input shaft bearing had failed, with evidence of unsafe past repairs, including a pulley welded out of square. Consequently, the decision was made to strip the vehicle to its chassis and implement a completely rebuilt rear end. The modification included strengthening and reinforcing the rear chassis, removing the obsolete differential entirely, and installing a new rear axle with a motorcycle-grade chain and sprocket drive system.
 
@@ -397,16 +392,7 @@ We chose to use two of these modules for the conversion because they were readil
 
 In order to make the project modular, easy to repair and affordable, we decided to go with a popular JK BMS product. L\&NER already had some familiarity with these products after using them in the organisation's off-grid storage shed.
 
-The JK-BD6A24S12P provides:
-
-\begin{itemize}
-  \item Per-cell voltage monitoring and active balancing of 0.6A
-  \item Temperature sensing
-  \item Overvoltage/undervoltage cutoff
-  \item Overcurrent protection
-  \item Charge/discharge MOSFET isolation
-  \item Communication (Bluetooth/RS485)
-\end{itemize}
+The JK-BD6A24S12P provides comprehensive protection including per-cell voltage monitoring, active balancing, temperature sensing, overvoltage/undervoltage cutoff, overcurrent protection, charge/discharge MOSFET isolation, and communication capabilities (Bluetooth/RS485). Detailed protection mechanisms and specifications are described in Section~\ref{sec:electrical-protection}.
 
 \section{Understanding Thermal Runaway in NCM Cells}
 
@@ -626,7 +612,7 @@ The JK~BMS continuously monitors temperature using two probes placed between cel
 
 As shown in Figure~\ref{fig:thermal_safe}, even the highest credible thermal condition, corresponding to full-power discharge during a heatwave, remains far to the left of the first exothermic reaction zone. This separation demonstrates that the pack design operates well within thermally stable bounds under all foreseeable operating environments.
 
-\section{Thermal Management and Environmental Control}
+\subsection{Thermal Management and Environmental Control}
 
 While active liquid or forced-air cooling is not necessary at the modest current densities used in this system, thermal management remains a central element of the overall safety architecture. The battery modules are installed within an open, ventilated enclosure that allows convective heat exchange with the surrounding air. The use of thermally conductive, flame-retardant interconnect materials further assists in spreading localised heat loads, ensuring no cell experiences abnormal temperature rise relative to its peers.
 
