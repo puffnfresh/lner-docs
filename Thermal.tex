@@ -89,6 +89,7 @@ Operational control and safety are also enhanced. An electric system provides in
 The conversion supports the railway's long-term vision for low-impact, sustainable transport. By demonstrating successful electrification of a small traction vehicle, the project establishes a scalable model for future conversions and contributes to the organisation's technical capability in electric mobility. It also demonstrates leadership in environmental stewardship -- minimising disturbance to wildlife, reducing fire risk associated with fuel handling, and aligning with community expectations for modern, sustainable tourism operations.
 
 \section{System Requirements}
+\label{sec:system-requirements}
 
 The electric conversion of the former petrol-powered maintenance vehicle was guided by a defined set of functional, performance, and safety requirements, ensuring that the resulting traction system is reliable, efficient, and suitable for mixed-use operation on the heritage railway. These requirements reflect operational needs, environmental conditions, and applicable safety principles relevant to the Launceston \& North East Railway.
 
@@ -120,12 +121,13 @@ The electric conversion of the former petrol-powered maintenance vehicle was gui
 \begin{itemize}
     \item The conversion must reduce noise and emissions, improving the visitor experience and reducing disturbance to wildlife.
     \item The system must be suitable for outdoor use in the Tasmanian environment, including operation in light rain, variable temperatures, and exposure to dust and vegetation.
-    \item Maintenance requirements must be reduced relative to the petrol engine, with minimal need for fluid changes or mechanical adjustments.
+  \item Maintenance requirements must be reduced relative to the petrol engine, with minimal need for fluid changes or mechanical adjustments.
 \end{itemize}
 
 \section{Traction Motor Requirements and Torque Analysis}
+\label{sec:torque-analysis}
 
-The electric traction system must provide sufficient torque and power to safely and reliably propel a consist of up to three railbug vehicles along the Launceston \& North East Railway's 3.3~km demonstration track. This includes operation on the steepest gradient section of approximately 1:40, while carrying typical passenger loads and maintaining controlled performance during start-up, acceleration, and regenerative braking.
+The electric traction system must provide sufficient torque and power to safely and reliably propel a consist of up to three railbug vehicles along the Launceston \& North East Railway's 3.3~km operational track. This includes operation on the steepest gradient section of approximately 1:40, while carrying typical passenger loads and maintaining controlled performance during start-up, acceleration, and regenerative braking.
 
 \subsection{Operational Scenario}
 
@@ -193,6 +195,7 @@ The chosen traction motor, gearing, and drive system must therefore satisfy the 
 These requirements form the performance baseline for evaluating and selecting a suitable motor and controller combination for the converted vehicle.
 
 \subsection{Drivetrain Configuration and Performance Verification}
+\label{sec:drivetrain-config}
 
 The final drivetrain configuration uses a chain drive with a gear reduction ratio of 4.29:1, achieved through a 14-tooth motor sprocket and a 60-tooth axle sprocket. This gear ratio was selected during commissioning to optimize the balance between torque multiplication and vehicle speed capability.
 
@@ -251,7 +254,7 @@ The final as-built configuration, incorporating the 4.29:1 gear ratio implemente
   \item \textbf{Safety compliance:} All electrical systems incorporate BMS-controlled protection, appropriate fusing, contactors, and temperature monitoring in accordance with AS/NZS~5139:2019.
 \end{itemize}
 
-The implemented configuration therefore satisfies all functional, performance, and safety requirements established in Section~1.2 and Section~1.4, with appropriate safety margins to ensure reliable long-term operation.
+The implemented configuration therefore satisfies all functional, performance, and safety requirements established in Section~\ref{sec:system-requirements} and Section~\ref{sec:torque-analysis}, with appropriate safety margins to ensure reliable long-term operation.
 
 \subsection{Battery System}
 
@@ -284,13 +287,12 @@ The use of mass-produced components such as the QS165 motor and FarDriver contro
 
 The resulting system provides a compact, efficient, and quiet electric drivetrain that aligns with the railway's commitment to sustainable operation and minimal environmental impact.
 
-The mechanical integration of the motor and drivetrain was overseen and executed by Greg Stewart, a qualified Motor Mechanic (Lic No: 7277 10508 025470) with extensive experience in vehicle fabrication. A detailed mechanical engineering review and description of the chassis overhaul is provided in Section~2.2.
+The mechanical integration of the motor and drivetrain was overseen and executed by Greg Stewart, a qualified Motor Mechanic (Lic No: 7277 10508 025470) with extensive experience in vehicle fabrication. A detailed mechanical engineering review and description of the chassis overhaul is provided in Section~\ref{sec:mechanical-review}.
 
 \chapter{Project implementation}
 
 \section{Timeline}
-
-\label{subsec:timeline}
+\label{sec:timeline}
 
 \begin{longtable}{p{3.5cm} | p{9.5cm}}
 \textbf{Date} & \textbf{Work} \\ \hline
@@ -316,6 +318,7 @@ The mechanical integration of the motor and drivetrain was overseen and executed
 \end{longtable}
 
 \section{Mechanical Engineering Review}
+\label{sec:mechanical-review}
 
 A mechanical review of the vehicle's modifications was conducted by Greg Stewart, a qualified Motor Mechanic (Lic No: 7277 10508 025470) and long-standing board member of the Launceston \& North East Railway. The review specifically addressed the adequacy of the drive-train components (axles, hubs, and keyways) for electric motor operation, the independence of the braking system from the electric drive-train, the continued adequacy of the braking system without transmission braking, and the control of maximum operating speed. His initial assessment of the vehicle in its original petrol-powered configuration identified several critical safety defects, including significant wheel misalignment, a failing motor mount and non-functional brakes. Further inspection revealed a total failure of the rear differential input shaft bearing and a drive pulley that had been dangerously welded out of square, a condition deemed likely to cause catastrophic failure during operation.
 
@@ -331,56 +334,37 @@ The QS165 electric motor provides 40~N$\cdot$m peak torque at the motor shaft. T
 
 The motorcycle-grade 428 profile chain and hardened steel sprockets selected for the new drive system are commonly rated for applications exceeding 10~kW at similar reduction ratios, providing confidence in the mechanical integrity of the design. The custom-fabricated steel engine mount and integrated automatic chain tensioner, both designed and built by Greg Stewart, ensure proper alignment and consistent tension throughout the operating range, reducing stress concentrations and fatigue loading on all drive components.
 
-The review also verified the implementation of a redundant braking architecture consisting of the original manual disc brakes and supplemental regenerative braking via the motor controller. Through these modifications, the unit has been transformed into a mechanically robust vehicle that tracks precisely without derailing, representing a significant improvement in safety and reliability over the original configuration. Comprehensive photographic evidence has been maintained throughout the build process (\ref{subsec:timeline}) to provide a transparent record of all engineering improvements and mechanical verifications.
+The motorcycle-grade 428 profile chain and hardened steel sprockets selected for the new drive system are commonly rated for applications exceeding 10~kW at similar reduction ratios, providing confidence in the mechanical integrity of the design. The custom-fabricated steel engine mount and integrated automatic chain tensioner, both designed and built by Greg Stewart, ensure proper alignment and consistent tension throughout the operating range, reducing stress concentrations and fatigue loading on all drive components.
 
-\section{Traction Motor Replacement and Controller Integration}
+Through these modifications, the unit has been transformed into a mechanically robust vehicle that tracks precisely without derailing, representing a significant improvement in safety and reliability over the original configuration. Comprehensive photographic evidence has been maintained throughout the build process (Chapter~\ref{ch:photos}) to provide a transparent record of all engineering improvements and mechanical verifications.
 
-\subsection{Scope of Modification}
-The original 13.5~HP Briggs \& Stratton internal combustion engine has been replaced
-with a QS165 brushless DC motor controlled by a FarDriver 72450 motor controller. This
-modification includes mechanical integration of the motor to the vehicle chassis, installation
-of new axles and sprockets, and connection to the existing battery system. All structural
-components affected by the modification have been designed and fabricated to withstand
-dynamic and static loads encountered during normal operation along the 3.3~km track.
+\subsection{Braking System Mechanical Independence}
 
-\subsection{Technical Description}
-The QS165 motor and FarDriver 72450 controller configuration (specifications detailed in Section 1.5) was verified to meet all performance requirements through the analysis presented in Section 1.4. Mechanical integration was carried out by a qualified mechanic, ensuring precise alignment of the motor shaft with the sprocket and axle assemblies to prevent undue wear or vibration. All drive components have been designed with safety factors appropriate to expected operational stresses.
+The mechanical review verified that the physical disc braking system operates entirely independently of the electric drive-train, including the motor, controller, and chain drive. This independence guarantees that effective, fail-safe mechanical braking is always available to the operator, even if the drive-train fails or the electrical system is isolated. The original disc brakes have been retained without modification, ensuring that the fundamental braking performance remains consistent with the vehicle's original design. This layered braking approach, combining independent mechanical brakes with supplemental electronic control, provides redundant safety mechanisms for vehicle deceleration.
 
-During the technical review of the original propulsion system, it was discovered that the rear differential top pulley and input shaft bearing had failed, with evidence of unsafe past repairs, including a pulley welded out of square. Consequently, the decision was made to strip the vehicle to its chassis and implement a completely rebuilt rear end. The modification included strengthening and reinforcing the rear chassis, removing the obsolete differential entirely, and installing a new rear axle with a motorcycle-grade chain and sprocket drive system.
+\section{Controller and Operational Systems}
+
+\subsection{Controller Configuration}
+
+Motor control is provided by a FarDriver 72450 controller, which provides comprehensive programmability of current limits, torque curves, regenerative braking, and thermal protection. The controller enforces speed and current limits to prevent over-torque conditions and unsafe operation. The controller is integrated with an emergency isolation switch that provides immediate power cutoff capability, allowing the operator or emergency responders to disconnect all electrical power to the motor in the event of a fault or emergency condition.
+
+The controller was configured to provide regenerative braking capability for controlled descents and energy recovery, supplementing the mechanical disc brakes. This dual-layered braking approach provides both energy efficiency and enhanced control during operation, while maintaining the independence of the mechanical braking system as the primary safety mechanism.
 
 \subsection{Risk Assessment and Mitigation}
-Primary risks unique to the motor replacement include:
-\begin{itemize}
-  \item Mechanical failure of drive components (motor couplings, sprockets, axles).
-  \item Excessive torque or unintended motion due to controller or operator error.
-  \item Motor or controller overtemperature during high load conditions.
-\end{itemize}
 
-Mitigations specific to these risks include:
-\begin{itemize}
-  \item Secure mechanical mounting with robust fabrication and alignment verification.
-  \item Integration of the motor controller with an emergency isolation switch.
-  \item Bench and on-track commissioning under controlled conditions to verify
-        motor performance, alignment, and thermal behavior.
-  \item Operator training on safe start-up, operation, and emergency procedures
-        unique to the traction system.
-\end{itemize}
+Mechanical risks associated with the drivetrain redesign, including structural adequacy of fabricated components and load-bearing capacity, are addressed in Section~\ref{sec:mechanical-review} as part of the mechanical engineering review.
+
+Primary risks associated with the electrical traction and control systems include excessive torque or unintended motion due to controller programming errors or operator error, motor or controller overtemperature during high load conditions, and electrical system faults or battery isolation failures. Controller programming includes torque and current limits to prevent over-torque conditions that could compromise mechanical components or cause loss of control. The emergency isolation switch provides immediate power cutoff capability in the event of controller malfunction, electrical fault, or operator emergency. Comprehensive battery management system monitoring provides automatic disconnect on fault conditions, protecting both the electrical system and operators from hazardous conditions.
+
+Commissioning procedures included bench testing of the controller configuration followed by controlled on-track trials to verify motor performance, controller response, and thermal behavior under realistic load conditions. Results were recorded for baseline reference and future comparison. Operator training focuses on safe start-up procedures, recognition of fault conditions, proper use of the emergency isolation switch, and emergency procedures unique to the electric traction system.
 
 \subsection{Operational Procedures and Commissioning}
-Pre-start inspections focus on mechanical integrity (mounts, couplings, and drive components)
-and controller functionality. The motor controller enforces current and speed limits to
-prevent over-torque conditions. On-track commissioning involved a controlled round-trip
-on the 3.3~km track, monitoring motor performance, vibration, and mechanical alignment.
-Results are recorded for baseline reference and future comparison. Scheduled post-implementation
-reviews are conducted after initial operating hours and annually thereafter to ensure ongoing
-mechanical and operational safety.
 
-\subsection{Braking System Independence and Adequacy}
-The vehicle utilizes a standard e-bike braking architecture that provides dual-layered deceleration through integrated physical and electronic controls. The primary stopping power is delivered by the original physical disc brakes, which have been retained without modification to ensure that the fundamental braking performance remains consistent with the vehicle's original design. These mechanical brakes are supplemented by the FarDriver 72450 controller, which is programmed to provide regenerative braking for controlled descents and energy recovery.
+Pre-start inspections focus on electrical connections, controller status indicators, battery state of charge, and emergency isolation switch functionality. The motor controller enforces current and speed limits programmed during initial configuration to prevent over-torque conditions and ensure operation within safe parameters. On-track commissioning involved controlled trials on the 3.3~km track, monitoring motor performance, controller response, and thermal behavior under varying load conditions. Results are recorded for baseline reference and future comparison. Scheduled post-implementation reviews are conducted after initial operating hours and annually thereafter to ensure ongoing electrical system integrity and operational safety.
 
-A critical feature of this configuration is that the physical disc braking system operates entirely independently of the electric drive-train, including the motor, controller, and chain drive. This independence guarantees that effective, fail-safe mechanical braking is always available to the operator, even if the drive-train fails or the electrical system is isolated.
+\subsection{Braking System Adequacy}
 
-Furthermore, the braking system is considered highly adequate despite the removal of the original petrol motor's transmission braking. Because the maximum service speed is strictly limited to 15 km/h, the original disc brakes possess more than enough capacity to safely stop the vehicle under all expected operational loads. The supplemental regenerative braking further reduces wear on the physical components while providing a smooth, controlled deceleration profile.
+The braking system is considered highly adequate for the vehicle's operational requirements. The maximum service speed is strictly limited to 15~km/h through controller programming, ensuring the original disc brakes possess more than sufficient capacity to safely stop the vehicle under all expected operational loads, including emergency stops on maximum gradient sections. The supplemental regenerative braking provided by the FarDriver controller further reduces wear on the physical brake components while providing smooth, controlled deceleration during normal operation. This dual-layered approach combines the reliability of independent mechanical braking with the operational benefits of electronic regenerative braking, providing both safety and efficiency.
 
 \section{Dashboard}
 
@@ -817,6 +801,7 @@ The simulation software was written as an interactive webpage and is available o
 
 
 \chapter{Photographic Evidence of Engineering Modifications}
+\label{ch:photos}
 
 \begin{figure}
   \includegraphics[width=\linewidth]{pics/battery-modules.jpg}
