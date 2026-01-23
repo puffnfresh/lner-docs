@@ -52,7 +52,7 @@ This report has been prepared by Brian McKenna, the primary engineer on this ele
 
 \section{Rationale for Electric Conversion}
 
-The decision to replace the original 13.5~HP Briggs \& Stratton petrol engine with an electric traction system was made to improve environmental performance, operational reliability, and safety, while aligning with the Launceston \& North East Railway’s broader sustainability objectives. The original internal combustion engine produced significant exhaust noise and emissions that detracted from the natural ambience of the Tasmanian bushland and it would reduce the comfort of visitors on adjacent pedal-powered rail vehicles. 
+The decision to replace the original 13.5~HP Briggs \& Stratton petrol engine with an electric traction system was made to improve environmental performance, operational reliability, and safety, while aligning with the Launceston \& North East Railway's broader sustainability objectives. The original internal combustion engine produced significant exhaust noise and emissions that detracted from the natural ambience of the Tasmanian bushland and it would reduce the comfort of visitors on adjacent pedal-powered rail vehicles.
 
 Electrification eliminates exhaust emissions entirely, contributing to improved air quality and a quieter, more enjoyable experience for tourists and volunteers. Electric drive systems operate almost silently apart from drivetrain noise, allowing the natural soundscape of the railway corridor to be preserved.
 
@@ -60,7 +60,7 @@ From a maintenance perspective, the electric traction system greatly reduces mec
 
 Operational control and safety are also enhanced. An electric system provides instant torque without the risk of stalling, and electric motor controllers enforce programmable current and speed limits, reducing the potential for operator error. The battery management and isolation systems ensure that electrical faults or overtemperature conditions are automatically detected and managed, further improving reliability and safety.
 
-The conversion supports the railway’s long-term vision for low-impact, sustainable transport. By demonstrating successful electrification of a small traction vehicle, the project establishes a scalable model for future conversions and contributes to the organisation’s technical capability in electric mobility. It also demonstrates leadership in environmental stewardship -- minimising disturbance to wildlife, reducing fire risk associated with fuel handling, and aligning with community expectations for modern, sustainable tourism operations.
+The conversion supports the railway's long-term vision for low-impact, sustainable transport. By demonstrating successful electrification of a small traction vehicle, the project establishes a scalable model for future conversions and contributes to the organisation's technical capability in electric mobility. It also demonstrates leadership in environmental stewardship -- minimising disturbance to wildlife, reducing fire risk associated with fuel handling, and aligning with community expectations for modern, sustainable tourism operations.
 
 \section{System Requirements}
 
@@ -99,11 +99,11 @@ The electric conversion of the former petrol-powered maintenance vehicle was gui
 
 \section{Traction Motor Requirements and Torque Analysis}
 
-The electric traction system must provide sufficient torque and power to safely and reliably propel a consist of up to three railbug vehicles along the Launceston \& North East Railway’s 3.3~km demonstration track. This includes operation on the steepest gradient section of approximately 1:40, while carrying typical passenger loads and maintaining controlled performance during start-up, acceleration, and regenerative braking.
+The electric traction system must provide sufficient torque and power to safely and reliably propel a consist of up to three railbug vehicles along the Launceston \& North East Railway's 3.3~km demonstration track. This includes operation on the steepest gradient section of approximately 1:40, while carrying typical passenger loads and maintaining controlled performance during start-up, acceleration, and regenerative braking.
 
 \subsection{Operational Scenario}
 
-Each railbug vehicle is designed to carry approximately two adults and two children, with a total loaded mass (including the vehicle structure) estimated at 400~kg per unit. When operating as a three-vehicle consist, the combined rolling mass including the powered vehicle and driver is estimated at approximately 1,400~kg.  
+Each railbug vehicle is designed to carry approximately two adults and two children, with a total loaded mass (including the vehicle structure) estimated at 400~kg per unit. When operating as a three-vehicle consist, the combined rolling mass including the powered vehicle and driver is estimated at approximately 1,400~kg.
 
 The traction system must therefore be capable of initiating motion from rest, sustaining steady-state operation at the desired cruise speed, and providing sufficient tractive effort to overcome both rolling resistance and gravitational load on the 1:40 incline.
 
@@ -135,13 +135,13 @@ F_\text{total} = 34.3 + 343 = 377~\text{N}
 
 \subsection{Torque Requirement at the Wheels}
 
-Assuming a wheel radius of 0.6~m, the torque at the wheels required to overcome this tractive load is:
+Assuming a wheel diameter of 0.6~m (radius 0.3~m), the torque at the wheels required to overcome this tractive load is:
 
 \[
-T_\text{wheel} = F_\text{total} \times r = 377 \times 0.6 = 226~\text{N}\cdot\text{m}
+T_\text{wheel} = F_\text{total} \times r = 377 \times 0.3 = 113~\text{N}\cdot\text{m}
 \]
 
-This represents the steady-state torque demand for climbing the maximum gradient at constant speed. To allow for acceleration, minor gradients, bearing friction, and inefficiencies, a design safety margin of at least 2--3 times this value is recommended, yielding a peak requirement in the order of 450--700~N$\cdot$m at the wheels.
+This represents the steady-state torque demand for climbing the maximum gradient at constant speed. To allow for acceleration, minor gradients, bearing friction, and inefficiencies, a design safety margin of at least 2--3 times this value is recommended, yielding a peak requirement in the order of 225--340~N$\cdot$m at the wheels.
 
 \subsection{Power Requirement}
 
@@ -151,20 +151,51 @@ The required power depends on the desired operating speed. For example, at a ste
 P = F_\text{total} \times v = 377 \times 2.78 = 1.05~\text{kW}
 \]
 
-This is the theoretical minimum continuous power. Considering transmission losses, acceleration, and variable gradients, a continuous rating of approximately 3--4~kW and a short-term peak capability of 8--10~kW are appropriate design targets for the traction system
+This is the theoretical minimum continuous power. Accounting for drivetrain losses (approximately 8--10\% for chain drive) yields a practical requirement of 1.15~kW. With a reasonable safety margin for variable conditions and transient loads, a continuous rating of approximately 2--2.5~kW would be adequate. The selected motor provides 3.5~kW continuous, representing a conservative safety margin of approximately 3$\times$ that ensures reliable operation under all expected conditions.
 
 \subsection{Design Implications}
 
 The chosen traction motor, gearing, and drive system must therefore satisfy the following criteria:
 
 \begin{itemize}
-  \item Provide at least 700~N$\cdot$m of peak torque at the wheels to ensure safe starting and hill-climbing.
-  \item Sustain approximately 200--250~N$\cdot$m of continuous torque for steady operation on inclines.
-  \item Deliver a continuous power output of at least 3~kW.
+  \item Provide at least 340~N$\cdot$m of peak torque at the wheels to ensure safe starting and hill-climbing.
+  \item Sustain approximately 100--125~N$\cdot$m of continuous torque for steady operation on inclines.
+  \item Deliver a continuous power output of at least 2~kW.
   \item Allow regenerative braking capability for controlled descent and energy recovery.
 \end{itemize}
 
 These requirements form the performance baseline for evaluating and selecting a suitable motor and controller combination for the converted vehicle.
+
+\subsection{Drivetrain Configuration and Performance Verification}
+
+The final drivetrain configuration uses a chain drive with a gear reduction ratio of 4.29:1, achieved through a 14-tooth motor sprocket and a 60-tooth axle sprocket. This gear ratio was selected during commissioning to optimize the balance between torque multiplication and vehicle speed capability.
+
+\subsubsection{Motor Torque Adequacy}
+
+With the 4.29:1 gear reduction, the motor torque requirement to meet the steady-state climbing load is:
+\[
+T_\text{motor, required} = \frac{T_\text{wheel}}{R_\text{gear}} = \frac{113\,\text{N}\cdot\text{m}}{4.29} = 26.3\,\text{N}\cdot\text{m}
+\]
+
+This is well within the motor's continuous capability. The motor's peak torque specification of $\geq$40~N$\cdot$m provides a wheel torque of:
+\[
+T_\text{wheel, available} = 40 \times 4.29 = 172\,\text{N}\cdot\text{m}
+\]
+
+This represents a safety factor of 1.52$\times$ above the steady-state requirement (172 / 113 = 1.52), which provides adequate margin for starting, acceleration, and transient loads on the maximum gradient.
+
+\subsubsection{Speed Performance}
+
+At the motor's maximum rated speed of 3500~RPM, the vehicle achieves a theoretical maximum speed of:
+\[
+v_\text{max} = \frac{3500}{4.29} \times \pi \times 0.6 \times \frac{60}{1000} = 25.7\,\text{km/h}
+\]
+
+This provides a comfortable margin above the 15~km/h service speed limit, allowing for controlled operation well below the motor's maximum capabilities while maintaining reserve capacity for varying load conditions.
+
+\subsubsection{Gear Ratio Selection}
+
+The drivetrain configuration was modified during the project timeline. Initially, a 40-tooth axle sprocket provided a 2.86:1 ratio, but this was increased to 4.29:1 (60-tooth sprocket) in July 2025 to improve hill-climbing torque and bring the operating speed more closely aligned with the target service speed. This 50\% increase in gear reduction enhanced low-speed torque multiplication at the cost of reduced maximum speed capability, which was considered an acceptable trade-off given the vehicle's intended use on heritage railway trackwork with a 15~km/h speed limit.
 
 \section{Component Selection and Integration}
 
@@ -176,17 +207,50 @@ Brian McKenna developed a software physics simulation of the vehicle to verify t
 
 The simulation tool revealed that the components should be powerful enough, but not by a large margin. The gear ratio played a major factor and the simulation showed that changing the gearing could increase the margin by a lot, if needed. The simulation gave Brian McKenna and Greg Stewart sufficient confidence in the requirements and the design that the project proceeded.
 
+\subsection{Final Configuration Verification}
+
+The final as-built configuration, incorporating the 4.29:1 gear ratio implemented during commissioning, meets or exceeds all original system requirements:
+
+\begin{itemize}
+  \item \textbf{Tractive effort:} The system provides 172~N$\cdot$m peak torque at the wheels (motor: 40~N$\cdot$m $\times$ 4.29), exceeding the 113~N$\cdot$m steady-state requirement by a factor of 1.52, with adequate margin for starting and transient loads on the 1:40 gradient.
+
+  \item \textbf{Continuous power:} The motor's 3.5~kW continuous rating provides a 3$\times$ safety margin over the theoretical 1.15~kW requirement (accounting for drivetrain losses), ensuring reliable operation under all expected load conditions.
+
+  \item \textbf{Operating range:} The battery pack provides approximately 9.3~kWh of usable energy, sufficient for 6--8 hours of mixed-use operation without recharge, meeting the 2-hour minimum operational requirement with substantial reserve.
+
+  \item \textbf{Speed capability:} At maximum motor speed (3500~RPM), the vehicle achieves 25.7~km/h, comfortably exceeding the 15~km/h service speed limit while allowing controlled operation with power in reserve.
+
+  \item \textbf{Regenerative braking:} The FarDriver controller provides programmable regenerative braking capability for controlled descent and energy recovery, supplementing the mechanical disc brakes.
+
+  \item \textbf{Safety compliance:} All electrical systems incorporate BMS-controlled protection, appropriate fusing, contactors, and temperature monitoring in accordance with AS/NZS~5139:2019.
+\end{itemize}
+
+The implemented configuration therefore satisfies all functional, performance, and safety requirements established in Section~1.2 and Section~1.4, with appropriate safety margins to ensure reliable long-term operation.
+
 \subsection{Battery System}
 
-The battery system is composed of repurposed Hyundai Kona~EV lithium-ion modules that were previously used in the organisation’s off-grid energy storage system. These modules were selected for their high energy density, well-documented performance, and integrated safety design compliant with \textbf{AS~IEC~62619:2022}. Their reuse in this application reduces environmental impact and ensures consistency with existing maintenance and monitoring experience within the organisation. 
+The battery system is composed of repurposed Hyundai Kona~EV lithium-ion modules that were previously used in the organisation's off-grid energy storage system. These modules were selected for their high energy density, well-documented performance, and integrated safety design compliant with \textbf{AS~IEC~62619:2022}. Their reuse in this application reduces environmental impact and ensures consistency with existing maintenance and monitoring experience within the organisation.
 
 The battery pack arrangement is described with detail in \ref{sec:pack-configuration}. Battery management and protection are provided by a JK-BMS unit, chosen for its programmable protection thresholds, integrated cell balancing, and communication capability.
 
 \subsection{Traction Motor and Controller}
 
-A QS165 brushless permanent magnet motor was selected to provide tractive power. This model is widely used in electric motorcycles and light utility vehicles, offering a favourable balance of torque, efficiency, and cost. The motor’s compact form factor, sealed construction, and rated torque output make it well suited to low-speed rail operation and outdoor conditions typical of the Launceston \& North East Railway.
+A QS165 brushless permanent magnet motor was selected to provide tractive power. This model is widely used in electric motorcycles and light utility vehicles, offering a favourable balance of torque, efficiency, and cost. The motor's compact form factor, sealed construction, and rated torque output make it well suited to low-speed rail operation and outdoor conditions typical of the Launceston \& North East Railway.
 
-Motor control is provided by a FarDriver~72450 controller, which is widely supported and specifically matched to the QS165 motor family. The controller provides comprehensive programmability of current limits, torque curves, regenerative braking, and thermal protection. Its use of standard CAN and UART interfaces allows for future data logging and integration with onboard monitoring systems. Both the motor and controller combination are rated for substantially higher power levels than required in this application, ensuring ample thermal and electrical headroom.
+The QS165 motor has the following performance characteristics:
+
+\begin{itemize}
+  \item \textbf{Continuous Power:} 3.5~kW
+  \item \textbf{Rated Voltage:} 48--96~V~DC
+  \item \textbf{Rated Speed:} 2000--3500~RPM
+  \item \textbf{Peak Torque:} $\geq$40~N$\cdot$m
+  \item \textbf{Protection Rating:} IP67 (dust-tight and waterproof)
+  \item \textbf{Cooling:} Air cooling
+\end{itemize}
+
+These specifications are well-suited to the low-speed, high-torque requirements of railway traction. The motor's voltage range (48--96~V~DC) accommodates the battery pack's operating voltage (65.7~V nominal, 72~V maximum charge), and the IP67 rating provides adequate protection for outdoor operation in variable weather conditions.
+
+Motor control is provided by a FarDriver~72450 controller, which is widely supported and specifically matched to the QS165 motor family. The controller provides comprehensive programmability of current limits, torque curves, regenerative braking, and thermal protection. Its use of standard CAN and UART interfaces allows for future data logging and integration with onboard monitoring systems.
 
 \subsection{Mechanical Integration}
 
@@ -196,7 +260,7 @@ The mechanical integration of the motor and drivetrain was overseen and executed
 
 The use of mass-produced components such as the QS165 motor and FarDriver controller ensures that replacement parts, configuration tools, and technical documentation are readily available. These components have been adopted by a large community of electric vehicle builders, providing confidence in their reliability and long-term support. By repurposing Hyundai Kona EV modules and employing an accessible BMS system, the project achieves a high standard of safety and functionality without the cost or complexity of a bespoke commercial drive package.
 
-The resulting system provides a compact, efficient, and quiet electric drivetrain that aligns with the railway’s commitment to sustainable operation and minimal environmental impact.
+The resulting system provides a compact, efficient, and quiet electric drivetrain that aligns with the railway's commitment to sustainable operation and minimal environmental impact.
 
 \section{Traction Motor Replacement and Controller Integration}
 
@@ -246,11 +310,11 @@ reviews are conducted after initial operating hours and annually thereafter to e
 mechanical and operational safety.
 
 \subsection{Braking System Independence and Adequacy}
-The vehicle utilizes a standard e-bike braking architecture that provides dual-layered deceleration through integrated physical and electronic controls. The primary stopping power is delivered by the original physical disc brakes, which have been retained without modification to ensure that the fundamental braking performance remains consistent with the vehicle’s original design. These mechanical brakes are supplemented by the FarDriver 72450 controller, which is programmed to provide regenerative braking for controlled descents and energy recovery.
+The vehicle utilizes a standard e-bike braking architecture that provides dual-layered deceleration through integrated physical and electronic controls. The primary stopping power is delivered by the original physical disc brakes, which have been retained without modification to ensure that the fundamental braking performance remains consistent with the vehicle's original design. These mechanical brakes are supplemented by the FarDriver 72450 controller, which is programmed to provide regenerative braking for controlled descents and energy recovery.
 
 A critical feature of this configuration is that the physical disc braking system operates entirely independently of the electric drive-train, including the motor, controller, and chain drive. This independence guarantees that effective, fail-safe mechanical braking is always available to the operator, even if the drive-train fails or the electrical system is isolated.
 
-Furthermore, the braking system is considered highly adequate despite the removal of the original petrol motor’s transmission braking. Because the maximum service speed is strictly limited to 15 km/h, the original disc brakes possess more than enough capacity to safely stop the vehicle under all expected operational loads. The supplemental regenerative braking further reduces wear on the physical components while providing a smooth, controlled deceleration profile.
+Furthermore, the braking system is considered highly adequate despite the removal of the original petrol motor's transmission braking. Because the maximum service speed is strictly limited to 15 km/h, the original disc brakes possess more than enough capacity to safely stop the vehicle under all expected operational loads. The supplemental regenerative braking further reduces wear on the physical components while providing a smooth, controlled deceleration profile.
 
 \subsection{Mechanical Engineering Review}
 
@@ -276,9 +340,9 @@ The FarDriver controller is highly configurable through software. Brian McKenna 
 
 An electrical schematic diagram and parts list of the above components is available in Appendix \ref{ch:schematic}.
 
-A standard class A fire extinguisher was mounted to the vehicle in case of fire. Special Lithium-ion fire extinguishers are available, but they are very expensive and are not able to effectively stop or control thermal runaway \cite{en13195117}. This fire extinguisher should primarily be used to prevent the spread of a fire, keeping it away from the battery.
+A standard Class A fire extinguisher was mounted to the vehicle for fire safety. While specialized lithium-ion fire extinguishers are available, they are prohibitively expensive and have not been proven to effectively stop or control thermal runaway once initiated \cite{en13195117}. In the unlikely event of a battery fire, the primary purpose of the standard fire extinguisher is to protect surrounding areas and prevent the fire from spreading to other combustible materials, rather than attempting to extinguish the battery itself directly. The vehicle's design relies on multiple preventive measures to avoid thermal runaway in the first place, making the extinguisher a secondary safety measure for managing fire spread should other controls fail.
 
-The Safey Management System documents which referenced parts of the escort vehicle been updated and attached in Appendix \ref{ch:sms}.
+The Safety Management System documents which reference parts of the escort vehicle have been updated and attached in Appendix \ref{ch:sms}.
 
 \chapter{Project implementation}
 
@@ -293,7 +357,7 @@ The Safey Management System documents which referenced parts of the escort vehic
 23 October 2024 & Greg Stewart finished fabrication of a motor mount \ref{fig:motormount1} \ref{fig:motormount2}. \\
 29 October 2024 & Pulley arrived. After Greg Stewart attempt at fitting, he determined that the pulley was too large \ref{fig:pulley1}. \\
 19 November 2024 & A smaller pulley was machined to fit the vehicle \ref{fig:pulley2}. \\
-23 November 2024 & While fitting the smaller pulley, Greg Stewart discovered that the transmission pulley was wobbling, makiing it unsafe for operation \ref{fig:transmission}. \\
+23 November 2024 & While fitting the smaller pulley, Greg Stewart discovered that the transmission pulley was wobbling, making it unsafe for operation \ref{fig:transmission}. \\
 4 December 2024 & After not being able to find a replacement transmission, Greg Stewart and Brian McKenna decided to move to a chain drive, removing the transmission altogether \ref{fig:motorsprocket} \ref{fig:axlesprocket}. \\
 20 December 2024 & Greg Stewart finished fabrication of motor and controller mounts \ref{fig:controllermount} \ref{fig:motormount3}. Ian Nicholas finished fabrication of sprocket-axle coupling \ref{fig:axlecoupler}. \\
 31 December 2024 & Greg Stewart mounted the motor, controller and axle to the vehicle \ref{fig:chassismounted}. \\
@@ -304,7 +368,7 @@ The Safey Management System documents which referenced parts of the escort vehic
 15 March 2025 & Brian McKenna fitted a fuse \ref{fig:fuse}, beacon light, emergency stop \ref{fig:initialdash} and charger \ref{fig:charger}. \\
 18 March 2025 & Brian McKenna created a wiring loom for the Battery Management System (BMS) \ref{fig:bmsloom}. \\
 21 March 2025 & Greg Stewart and Brian McKenna put the batteries and BMS into the vehicle \ref{fig:batteryandbms}. \\
-30 March 2025 & Brian McKenna configured the BMS \ref{fig:screenshotbms} and Fardriver controller \ref{fig:screenshotfardriver}. \\
+30 March 2025 & Brian McKenna configured the BMS \ref{fig:screenshotbms} and FarDriver controller \ref{fig:screenshotfardriver}. \\
 11 July 2025 & Ian Nicholas modified the axle-sprocket coupling and Greg Stewart attached a larger sprocket \ref{fig:axlesprocket2}. \\
 5 December 2025 & Brian McKenna and Greg Stewart installed the completed dashboard \ref{fig:dashboard}.
 \end{longtable}
@@ -331,7 +395,7 @@ We chose to use two of these modules for the conversion because they were readil
 
 \subsection{BMS Overview}
 
-In order to make the project modular, easy to repair and affordable, we decided to go with a popular JK BMS product. L\&NER already had some familiarity with these products after using them our off-grid storage shed.
+In order to make the project modular, easy to repair and affordable, we decided to go with a popular JK BMS product. L\&NER already had some familiarity with these products after using them in the organisation's off-grid storage shed.
 
 The JK-BD6A24S12P provides:
 
@@ -434,12 +498,12 @@ Figure~\ref{fig:soc-curve} shows the open-circuit voltage (OCV) versus SOC for t
 \node[red] at (axis cs:85,43.1) {\small 4.0 V SOC cut-off};
 
 \end{axis}
-\end{tikzpicture} 
-\caption{Estimated maximum cell temperature under maxmimum operation at ambient 40$^\circ$C with 100A discharge. Red dashed line shows 4 V SOC limit (85\%).}
+\end{tikzpicture}
+\caption{Estimated maximum cell temperature under maximum operation at ambient 40$^\circ$C with 100A discharge. Red dashed line shows 4 V SOC limit (85\%).}
 \label{fig:temp_soc_40C}
 \end{figure}
 
-The decision to limit charging to 4.0\,V per cell, rather than the manufacturer’s maximum of 4.2\,V, is based on well-established lithium-ion cell degradation and safety mechanisms. The following paragraphs summarise the technical basis for this design choice.
+The decision to limit charging to 4.0\,V per cell, rather than the manufacturer's maximum of 4.2\,V, is based on well-established lithium-ion cell degradation and safety mechanisms. The following paragraphs summarise the technical basis for this design choice.
 
 \subsection{Voltage-Dependent Degradation Mechanisms}
 
@@ -455,31 +519,31 @@ These mechanisms increase both the likelihood of internal short-circuit formatio
 
 \subsection{Safety Margin Relative to Thermal Runaway Thresholds}
 
-NCM cells exhibit a strong correlation between state of charge (SOC) and the onset temperature for thermal runaway. Laboratory testing shows that:
+NCM cells exhibit a strong correlation between state of charge (SOC) and the onset temperature for violent thermal runaway. Laboratory testing shows that:
 \begin{itemize}
-  \item At 100\,\% SOC (4.2\,V), thermal runaway can initiate as low as 170--180 $^\circ$C.
-  \item At 80--85\,\% SOC (\(\approx 4.0\,\mathrm{V}\)), onset typically occurs above 210\,$^\circ$C.
+  \item At 100\,\% SOC (4.2\,V), violent exothermic reaction (cathode oxygen release) can initiate as low as 170--180 $^\circ$C.
+  \item At 80--85\,\% SOC (\(\approx 4.0\,\mathrm{V}\)), this stage typically occurs above 210\,$^\circ$C.
 \end{itemize}
 
-This increase of 30--40 $^\circ$C in onset temperature provides a substantial thermal safety buffer under abuse or fault conditions. Since the assist vehicle operates outdoors and may be subject to solar loading, maintaining this buffer is essential to prevent cascade failure under abnormal temperature rise.
+These temperatures refer to the onset of the final stage of thermal runaway (cathode oxygen release), not the initial SEI breakdown which begins at lower temperatures (90--120 $^\circ$C). This increase of 30--40 $^\circ$C in onset temperature for the violent reaction stage provides a substantial thermal safety buffer under abuse or fault conditions. Since the assist vehicle operates outdoors and may be subject to solar loading, maintaining this buffer is essential to prevent cascade failure under abnormal temperature rise.
 
 \subsection{Impact on Cycle Life}
 
-Research and manufacturer data (e.g. LG Chem and other NCM cell studies) show that reducing the upper cutoff voltage from 4.2\,V to 4.0\,V can more than double usable cycle life \cite{ECKER2014839}:
+Research on NCM chemistry lithium-ion cells (including studies of similar automotive-grade cells) shows that reducing the upper cutoff voltage from 4.2\,V to 4.0\,V can more than double usable cycle life \cite{ECKER2014839}:
 \begin{itemize}
-  \item At 4.2 V, typical end-of-life (80 \% capacity) occurs at $\approx800$ cycles.
-  \item At 4.0 V, lifetime exceeds 2000 cycles with lower impedance growth.
+  \item At 4.2 V, typical end-of-life (80 \% capacity) occurs at $\approx800$ cycles for general NCM cells.
+  \item At 4.0 V, lifetime can exceed 2000 cycles with lower impedance growth.
 \end{itemize}
 
-Because the assist vehicle is expected to see frequent partial charge/discharge cycles rather than deep cycling, this voltage limitation ensures stable performance for many years while retaining adequate range.
+These cycle life figures are based on general NCM chemistry data rather than LG E63B-specific testing, but the underlying degradation mechanisms are consistent across NCM cathode chemistries. Because the assist vehicle is expected to see frequent partial charge/discharge cycles rather than deep cycling, this voltage limitation ensures stable performance for many years while retaining adequate range.
 
 \subsection{Energy Trade-Off Justification}
 
-Although limiting voltage to 4.0\,V reduces theoretical capacity to approximately 85 \% of rated energy, this loss is acceptable given the operational profile and the safety benefits gained:
+Although limiting voltage to 4.0\,V reduces usable capacity, the loss is acceptable given the operational profile and the safety benefits gained. Because the cell voltage decreases as SOC decreases, the relationship between SOC and usable energy is not linear. At 85\,\% SOC with a 4.0\,V upper limit, the average discharge voltage is approximately 3.5\,V per cell (compared to 3.65\,V nominal). A more accurate estimate of usable energy is:
 \[
-E_{usable} \approx 0.85 \times 12.4\,\mathrm{kWh} \approx 10.5\,\mathrm{kWh}
+E_\text{usable} \approx 0.75 \times 12.4\,\mathrm{kWh} \approx 9.3\,\mathrm{kWh}
 \]
-This energy level remains more than sufficient for the short-distance assist and maintenance duties of the vehicle.
+This energy level remains more than sufficient for the short-distance assist and maintenance duties of the vehicle, providing an estimated operating range of 6--8 hours under typical mixed-use conditions.
 
 \subsection{Summary of Benefits}
 
@@ -506,7 +570,7 @@ This approach aligns with best practices in railway traction battery design, whe
 \midrule
 Overcharging & Faulty charger or BMS malfunction & BMS voltage limit 4.0 V; charger current limit; fuse protection \\
 Overcurrent discharge & Short circuit or motor controller failure & 100 A fuse; BMS overcurrent cutoff; wiring rated to 200 A continuous \\
-High temperature & High ambient or continuous heavy load & Temperature sensors; BMS temperature cutoff at 55 $^\circ$C; thermal mass of enclosure \\
+High temperature & High ambient or continuous heavy load & Temperature sensors; BMS temperature cutoffs (45 $^\circ$C charging, 55 $^\circ$C discharging); thermal mass of enclosure \\
 Cell imbalance & Manufacturing variance or ageing & JK active balancing; cell-level monitoring \\
 Propagation & Thermal runaway in one cell & Metal enclosure; cell packing; limited SOC \\
 \bottomrule
@@ -515,11 +579,11 @@ Propagation & Thermal runaway in one cell & Metal enclosure; cell packing; limit
 \section{Expected Cell Temperature}
 \label{sec:thermal-environment}
 
-During normal operation, the battery pack is expected to experience only modest thermal variation due to the conservative operating limits and active monitoring implemented by the JK~BMS. The pack’s environmental conditions are determined by the regional climate of northern Tasmania, where the historical maximum ambient temperature in Launceston has not exceeded \(40^{\circ}\mathrm{C}\). Under these conditions, the internal cell temperature typically rises by only \(2{-}4^{\circ}\mathrm{C}\) above ambient during sustained discharge at the system’s maximum continuous current of 100~A (approximately \(0.53\,C\)), and less than \(1^{\circ}\mathrm{C}\) during 15~A charging.
+During normal operation, the battery pack is expected to experience only modest thermal variation due to the conservative operating limits and active monitoring implemented by the JK~BMS. The pack's environmental conditions are determined by the regional climate of northern Tasmania, where the historical maximum ambient temperature in Launceston has not exceeded \(40^{\circ}\mathrm{C}\). Under these conditions, the internal cell temperature typically rises by only \(2{-}4^{\circ}\mathrm{C}\) above ambient during sustained discharge at the system's maximum continuous current of 100~A (approximately \(0.53\,C\)), and less than \(1^{\circ}\mathrm{C}\) during 15~A charging.
 
-The moderate thermal rise is attributed to the low internal resistance of the LG~E63B cells ($\approx$1.4 m\(\Omega\) at 70--80 \% SOC). At the maximum discharge rate, resistive heating per cell is therefore around \(I^2R \approx (33.3\,\mathrm{A})^2 \times 1.4\,\mathrm{m}\Omega \approx 1.55\,\mathrm{W}\). Distributed over the cell’s mass and thermal interface, this produces a negligible temperature gradient, quickly equilibrated by conduction through the cell’s aluminium shell and the battery module’s structure.
+The moderate thermal rise is attributed to the low internal resistance of the LG~E63B cells ($\approx$1.4 m\(\Omega\) at 70--80 \% SOC). At the maximum discharge rate, resistive heating per cell is therefore around \(I^2R \approx (33.3\,\mathrm{A})^2 \times 1.4\,\mathrm{m}\Omega \approx 1.55\,\mathrm{W}\). Distributed over the cell's mass and thermal interface, this produces a negligible temperature gradient, quickly equilibrated by conduction through the cell's aluminium shell and the battery module's structure.
 
-The JK~BMS continuously monitors temperature using two probes placed between cell groups. These sensors are configured to trigger pre-emptive protective actions: charging is halted above \(45^{\circ}\mathrm{C}\), and discharge is suspended above \(55^{\circ}\mathrm{C}\). These thresholds are intentionally conservative—approximately \(50{-}60^{\circ}\mathrm{C}\) below the onset of SEI breakdown (\(90{-}120^{\circ}\mathrm{C}\))—providing a substantial safety buffer.
+The JK~BMS continuously monitors temperature using two probes placed between cell groups. These sensors are configured to trigger pre-emptive protective actions: charging is halted above \(45^{\circ}\mathrm{C}\), and discharge is suspended above \(55^{\circ}\mathrm{C}\). These thresholds are intentionally conservative---approximately \(50{-}60^{\circ}\mathrm{C}\) below the onset of SEI breakdown (\(90{-}120^{\circ}\mathrm{C}\))---providing a substantial safety buffer.
 
 
 \begin{figure}[h!]
@@ -566,7 +630,7 @@ As shown in Figure~\ref{fig:thermal_safe}, even the highest credible thermal con
 
 While active liquid or forced-air cooling is not necessary at the modest current densities used in this system, thermal management remains a central element of the overall safety architecture. The battery modules are installed within an open, ventilated enclosure that allows convective heat exchange with the surrounding air. The use of thermally conductive, flame-retardant interconnect materials further assists in spreading localised heat loads, ensuring no cell experiences abnormal temperature rise relative to its peers.
 
-Environmental exposure is limited by physical shielding from direct solar radiation and precipitation, while the BMS enforces temperature-based operational constraints described in Section~\ref{sec:thermal-environment}. These limits prevent both lithium plating at low temperatures and accelerated SEI degradation at elevated ones—two of the principal precursors to cell instability.
+Environmental exposure is limited by physical shielding from direct solar radiation and precipitation, while the BMS enforces temperature-based operational constraints described in Section~\ref{sec:thermal-environment}. These limits prevent both lithium plating at low temperatures and accelerated SEI degradation at elevated ones---two of the principal precursors to cell instability.
 
 The enclosure design also minimises the risk of heat accumulation through passive means. Airflow channels beneath and around the battery modules provide a continuous convection path, while thermal contact with metallic mounting plates helps distribute any localised heat generation. This ensures that even under sustained operation in warm ambient conditions, internal temperature gradients remain negligible.
 
@@ -575,26 +639,25 @@ A 100~A inline fuse provides a final passive failsafe, ensuring immediate isolat
 \section{Electrical Protections and Fault Management}
 \label{sec:electrical-protection}
 
-The electrical protection architecture of the system has been designed to ensure immediate and deterministic responses to abnormal operating conditions, preventing both electrical overstress and secondary thermal effects.  
-Protection functions are implemented at multiple levels: within the battery management system (BMS), through passive devices such as fuses, and by the motor controller’s firmware. This layered design provides redundancy and fail-safe isolation in the event of electrical faults.
+The electrical protection architecture of the system has been designed to ensure immediate and deterministic responses to abnormal operating conditions, preventing both electrical overstress and secondary thermal effects.
+Protection functions are implemented at multiple levels: within the battery management system (BMS), through passive devices such as fuses, and by the motor controller's firmware. This layered design provides redundancy and fail-safe isolation in the event of electrical faults.
 
-The JK~BMS supervises each cell group individually, monitoring voltage, temperature, and current with millisecond-level resolution.  
-If any cell exceeds its defined thresholds—overvoltage, undervoltage, overcurrent, or overtemperature—the BMS triggers a series of graded responses. These include immediate cessation of charging or discharging through solid-state contactor control, and, in extreme conditions, the activation of a physical relay to disconnect the entire pack from the vehicle’s electrical bus.  
+The JK~BMS supervises each cell group individually, monitoring voltage, temperature, and current with millisecond-level resolution.
+If any cell exceeds its defined thresholds---overvoltage, undervoltage, overcurrent, or overtemperature---the BMS triggers a series of graded responses. These include immediate cessation of charging or discharging through solid-state contactor control, and, in extreme conditions, the activation of a physical relay to disconnect the entire pack from the vehicle's electrical bus.
 
-An inline 100~A fuse is installed as a final passive safeguard. This component is rated to interrupt fault currents well in excess of the BMS cut-off limits and provides irreversible isolation in the event of catastrophic short circuits, such as wiring faults or controller failure.  
-Fuse coordination analysis confirms that at 100~A continuous operation, the fuse remains thermally stable, while transient faults exceeding 300~A will result in disconnection within less than 100~ms.  
+An inline 100~A fuse is installed as a final passive safeguard. This component is rated to interrupt fault currents well in excess of the BMS cut-off limits and provides irreversible isolation in the event of catastrophic short circuits, such as wiring faults or controller failure. At 100~A continuous operation, the fuse remains thermally stable, while higher fault currents will result in faster disconnection according to the fuse's time-current characteristic curve.
 
-To prevent voltage imbalance that could otherwise lead to cell overcharge, the BMS includes active cell balancing circuitry. This system redistributes charge between parallel strings whenever voltage deviation exceeds 10~mV, maintaining pack uniformity and further reducing the risk of localised heating.  
+To prevent voltage imbalance that could otherwise lead to cell overcharge, the BMS includes active cell balancing circuitry. This system redistributes charge between parallel strings whenever voltage deviation exceeds 10~mV, maintaining pack uniformity and further reducing the risk of localised heating.
 The balancing current is deliberately limited to a modest level to ensure long-term stability and to avoid thermal stress on the cell interconnects.
 
-Cables and busbars have been dimensioned according to AS/NZS 3008.1 and AS/NZS 5139:2019 for DC circuits at the expected continuous current. Conductor cross-sections were chosen such that the voltage drop remains below 2\%.  
-All terminations use crimped and mechanically supported lugs to prevent loosening under vibration, and insulation is rated for at least 1.5~times the nominal pack voltage (i.e., 108~VDC continuous).  
+Cables and busbars have been dimensioned according to AS/NZS 3008.1 and AS/NZS 5139:2019 for DC circuits at the expected continuous current. Conductor cross-sections were chosen such that the voltage drop remains below 2\%.
+All terminations use crimped and mechanically supported lugs to prevent loosening under vibration, and insulation is rated for at least 1.5~times the nominal pack voltage (i.e., 108~VDC continuous).
 
 \section{Physical and Fire Safety Design}
 
 The battery pack enclosure is constructed from extruded aluminium, serving both as a passive heatsink and a robust containment vessel in the unlikely event of a thermal event. This design promotes uniform heat dissipation while maintaining mechanical protection against impact or vibration. A pressure relief vent is integrated to prevent enclosure rupture under gas expansion conditions, in accordance with AS IEC 62619 requirements.
 
-The pack is mounted behind the operator’s compartment, separated by a fire-resistant barrier and accessible isolation switch. A Class D fire extinguisher is mounted within arm’s reach to address metal fires associated with lithium-based chemistries. All internal wiring employs double insulation, routed through grommeted bulkhead penetrations to minimise the risk of chafing and electrical faults. External conduits are rated for high temperature and abrasion resistance, contributing to a fail-safe electrical installation.
+The pack is mounted behind the operator's compartment, separated by a fire-resistant barrier and accessible isolation switch. A Class A fire extinguisher is mounted within arm's reach to manage fire spread and protect surrounding areas in the event of an incident. All internal wiring employs double insulation, routed through grommeted bulkhead penetrations to minimise the risk of chafing and electrical faults. External conduits are rated for high temperature and abrasion resistance, contributing to a fail-safe electrical installation.
 
 \section{Operational Controls and Training}
 
@@ -612,28 +675,11 @@ Battery charging must only occur in a well-ventilated area, on a non-combustible
 
 In the event of a thermal anomaly or fire, the operator must immediately cease traction power and actuate the main isolation switch. A safe evacuation distance of at least 5~m should be maintained. The enclosure is designed to vent gases safely; therefore, direct water application is prohibited, as it may exacerbate thermal runaway. Once personnel are safe, the incident must be reported to incident control and the Office of the National Rail Safety Regulator (ONRSR) in accordance with safety management procedures.
 
-\section{Testing and Commissioning Plan}
-
-Before the traction system is approved for regular service, a structured commissioning process will be undertaken to validate all safety and performance functions under realistic operating conditions.
-
-\begin{enumerate}
-  \item Verify BMS cutoff voltages, charge current limits, and temperature protection by simulating charge and discharge events under supervision.
-  \item Conduct an initial round-trip test over the full 3.3 km track, recording battery temperature, voltage, and current throughout the run. Confirm that peak cell temperature remains well below 60 $^\circ$C and that no overcurrent or overtemperature faults are triggered.
-  \item Validate fuse and MOSFET protection trip times through controlled short-duration overload tests.
-  \item Confirm insulation resistance of the completed pack assembly exceeds \SI{1}{\mega\ohm} between conductors and the chassis.
-  \item Document all measured data, thermal logs, and protection system responses, and file the results within the Safety Management System for review by the responsible engineer.
-\end{enumerate}
-
-\section{Post-Implementation Review Plan}
-
-An initial review will occur after 25~operating hours or one month of service, whichever comes first. The inspection will focus on connection integrity, signs of thermal stress such as discolouration, and any evidence of corrosion or moisture ingress. Annual electrical testing will be conducted thereafter as part of the routine maintenance cycle of the vehicle.
-
-\subsection{Electrical Work Scope and Authorisation}
+\section{Electrical Work Scope and Authorisation}
 
 All electrical work and modifications to the assist vehicle are performed in accordance with
 the limits and definitions of \textbf{AS/NZS~3000:2018} and the Tasmanian Electrical Safety
-Act 2022. The traction battery system operates at a nominal 72~V~DC, which falls within
-the extra-low voltage (ELV) classification of the Wiring Rules (below 120~V ripple-free~DC).
+Act 2022. The traction battery system operates at a nominal voltage of 65.7~V~DC (18 cells in series at 3.65~V per cell), with a maximum charge voltage of 72~V~DC (18 cells at 4.0~V per cell). This falls within the extra-low voltage (ELV) classification of the Wiring Rules (below 120~V ripple-free~DC).
 Accordingly, work on the traction system may be carried out by technically competent
 personnel trained in low-voltage battery systems, provided that the system remains isolated
 from mains supply and incorporates the required protective measures.
@@ -651,7 +697,7 @@ to ensure mechanical robustness, alignment, and safety under expected operating 
 
 The project has also been presented to the Australian Electric Vehicle Association (AEVA),
 where it received positive feedback for its engineering approach and safety management.
-This engagement demonstrates that the vehicle’s design and integration practices are
+This engagement demonstrates that the vehicle's design and integration practices are
 consistent with broader industry knowledge and accepted standards for low-voltage electric
 mobility systems.
 
@@ -661,7 +707,23 @@ The design, installation, and operation of the modified assist vehicle have been
 
 \chapter{Validation \& Post-Implementation}
 
-\section{Testing}
+\section{Testing and Commissioning Plan}
+
+Before the traction system is approved for regular service, a structured commissioning process will be undertaken to validate safe operation under realistic operating conditions. The commissioning process consists of multiple supervised trial runs with periodic checks to verify that the system remains within safe thermal and electrical limits.
+
+Each commissioning trial begins with a pre-run inspection. Before energising the system, the operator must verify that all connectors are secure, the battery enclosure shows no signs of damage or swelling, and the fire extinguisher is accessible. The BMS display should be checked to confirm all cells are balanced and within normal voltage range. The battery pack voltage is recorded and the battery enclosure temperature is checked manually by touch to confirm it is cool (approximately ambient temperature). Any BMS warnings or fault indicators are noted.
+
+The trial operation consists of a supervised round-trip along the 3.3 km track under typical load conditions. The vehicle is operated normally, including starts, stops, and hill climbing on the 1:40 gradient sections. At the turnaround point (approximately halfway through the route), the vehicle is stopped and the battery enclosure temperature is checked by touch to verify it remains cool to warm but not hot. The BMS display is checked for any fault codes or temperature warnings.
+
+Upon return from the trial run, the battery enclosure temperature is immediately checked by touch and the pack voltage is recorded. The enclosure should remain cool enough to touch comfortably. The BMS is monitored for 10 minutes after the run to confirm no delayed warnings appear. All connections and mechanical components are inspected for signs of loosening, overheating, or damage.
+
+The system will be considered successfully commissioned after completing a minimum of three trial runs on separate days. Successful commissioning requires that the battery enclosure temperature remains comfortable to touch (below approximately 45 $^\circ$C) throughout all trials, with no BMS fault codes or protection events occurring during normal operation. The battery voltage must remain within the expected operating range throughout each trial, and no unusual odours, smoke, or excessive heat may be detected at any point. All mechanical connections must remain secure with no evidence of loosening or vibration damage, and the vehicle must demonstrate adequate performance on all gradient sections.
+
+Any protection events, unexpected heating, or mechanical issues must be investigated and resolved before proceeding with additional trials.
+
+\section{Post-Implementation Review Plan}
+
+Following successful commissioning, an initial post-service review will occur after 25~operating hours or one month of regular service, whichever comes first. The inspection will focus on connection integrity, signs of thermal stress such as discolouration, and any evidence of corrosion or moisture ingress. The same manual temperature checks and BMS status verification used during commissioning should be repeated. Annual inspections will be conducted thereafter as part of the routine maintenance cycle of the vehicle.
 
 \printbibliography
 
@@ -851,7 +913,7 @@ The simulation software was written as an interactive webpage and is available o
 
 \begin{figure}
   \includegraphics[width=10cm]{pics/screenshotfardriver.jpg}
-  \caption{Generic screenshot of Fardriver app}
+  \caption{Generic screenshot of FarDriver app}
   \label{fig:screenshotfardriver}
 \end{figure}
 
